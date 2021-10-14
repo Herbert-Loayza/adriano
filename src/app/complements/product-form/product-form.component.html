@@ -1,0 +1,20 @@
+<div class="mt-4 ms-4">
+    <p>
+        Email: <br> 
+        <input type="email" [formControl] ="emailCtrl" >
+        
+    </p> <!-- habilita mensaje de error de campo requerido -->
+    <p *ngIf="emailCtrl.errors && emailCtrl.dirty">   <!-- emailCtrl.dirty  mensaje no aparece en primera instancia -->
+        <small *ngIf="emailCtrl.hasError('required') && emailCtrl.dirty">Este campo es requerido</small>
+        <small *ngIf="emailCtrl.hasError('maxlength') && emailCtrl.dirty">Este campo debe ser maximo de 10</small>
+        <small *ngIf="emailCtrl.hasError('minlength') && emailCtrl.dirty">Este campo debe ser minimo de 4</small>
+    </p>            <!-- maxlength minlength para minimo y maximo carateres -->
+
+    <button [disabled]="emailCtrl.invalid" class="btn btn-outline-primary" type="button" (click)="getEmail($event)">Save</button>
+</div>  <!-- [disabled]="emailCtrl.invalid" desabilitar si es invalido o no llenas nada aun -->
+
+
+
+
+
+
